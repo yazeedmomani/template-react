@@ -1,0 +1,40 @@
+// ******************************
+// INCLUDED IN TEMPLATE
+// ******************************
+// Title: Media Query Manager
+// $breakpoint argument choices:
+// - phone (for 0 - 600px)
+// - tab-port (for 600px - 900px)
+// - tab-land (for 900px - 1200px)
+// - big-desktop (for +1800px)
+// - (screen width in pixels using em unit instead of px. Example: 1200em instead of 1200px)
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  } @else if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  } @else if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  } @else if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  } @else if $breakpoint >= 1500em {
+    @media only screen and (min-width: pxToEm($breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: pxToEm($breakpoint)) {
+      @content;
+    }
+  }
+}
+// ******************************
+// NOT INCLUDED IN TEMPLATE
+// ******************************

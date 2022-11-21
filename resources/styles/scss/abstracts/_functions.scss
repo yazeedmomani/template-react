@@ -1,0 +1,22 @@
+// ******************************
+// INCLUDED IN TEMPLATE
+// ******************************
+// Description: using rem unit is a trick used to make websites responsive. By changing the html font-size,
+// all values that are in rem unit will change with it. In order to ease the use of rem unit, 1rem should equal to 10px.
+// To do that, html font-size will be set to 10px by default. However, to allow users to increase and decrease
+// their browser's font-size at will, pixels will be converted to percentages provided that
+// 100% = The browser's font-size = 16px. This function helps us achieve that
+@function pxToPercentage($a) {
+  @return calc($a / 16 * 100%);
+}
+
+// Description: In media queries, 1em = 16px always. This function helps calculate em for a number of pixels for media queries.
+// Note that it rounds up the resulted number.
+// Important: When inputing in the function use the unit em instead of px.
+@function pxToEm($a) {
+  @return calc(ceil($a / 16));
+}
+
+// ******************************
+// NOT INCLUDED IN TEMPLATE
+// ******************************
